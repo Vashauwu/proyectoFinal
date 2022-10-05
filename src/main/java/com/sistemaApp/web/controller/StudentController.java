@@ -24,8 +24,13 @@ public class StudentController {
     
     @Autowired
     private StudentService service;
+    @GetMapping("/")
+    public String showDashboard(){
+        
+        return "dashboardAlumno";
     
-    @GetMapping({"/student","/"})
+    }
+    @GetMapping({"/student"})
     public String listStudent(Model modl){
         modl.addAttribute("allStudeents",service.getstudents());
         return "allStudents";
