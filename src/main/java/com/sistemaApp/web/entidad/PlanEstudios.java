@@ -21,6 +21,8 @@ import javax.persistence.Table;
  *
  * @author pc
  */
+
+
 @Entity
 @Table(name = "plan_estudios")
 public class PlanEstudios {
