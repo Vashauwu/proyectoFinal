@@ -12,9 +12,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -31,12 +33,15 @@ public class Events {
     @Column(name = "nombre", nullable = false, length = 50)
     private String name;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fecha", nullable = false, length = 50)
     private Date date;
     
+    @JoinColumn(name = "id_validacion")
     @ManyToOne(targetEntity = Validacion.class)
     private Validacion id_validacion;
     
+    @JoinColumn(name = "id_plan_estudios")
     @ManyToOne(targetEntity = PlanEstudios.class)
     private PlanEstudios id_plan_estudios;
     
