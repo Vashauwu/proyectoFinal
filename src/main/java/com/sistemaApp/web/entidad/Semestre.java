@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,21 +28,29 @@ public class Semestre {
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
+    @JoinColumn(name = "id_semestreActual")
+    @ManyToOne(targetEntity = SemestreActual.class)
+    private SemestreActual id_semestreActual;
+    @JoinColumn(name = "id_grupos")
+    @ManyToOne(targetEntity = Grupos.class)
+    private Grupos id_grupos;
 
-    @OneToMany(mappedBy = "id_semestre")
-    private List<Student> id_estudiante;
-    
     public Semestre() {
 
     }
 
-    public Semestre(Long id, String nombre) {
+    public Semestre(Long id, String nombre, SemestreActual id_semestreActual, Grupos id_grupos) {
         this.id = id;
         this.nombre = nombre;
+        this.id_semestreActual = id_semestreActual;
+        this.id_grupos = id_grupos;
     }
 
-    public Semestre(String nombre) {
+    public Semestre( String nombre, SemestreActual id_semestreActual, Grupos id_grupos) {
+        
         this.nombre = nombre;
+        this.id_semestreActual = id_semestreActual;
+        this.id_grupos = id_grupos;
     }
 
     public Long getId() {
@@ -59,12 +69,20 @@ public class Semestre {
         this.nombre = nombre;
     }
 
-    public List<Student> getId_estudiante() {
-        return id_estudiante;
+    public SemestreActual getId_semestreActual() {
+        return id_semestreActual;
     }
 
-    public void setId_estudiante(List<Student> id_estudiante) {
-        this.id_estudiante = id_estudiante;
+    public void setId_semestreActual(SemestreActual id_semestreActual) {
+        this.id_semestreActual = id_semestreActual;
+    }
+
+    public Grupos getId_grupos() {
+        return id_grupos;
+    }
+
+    public void setId_grupos(Grupos id_grupos) {
+        this.id_grupos = id_grupos;
     }
     
     

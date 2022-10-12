@@ -28,24 +28,29 @@ public class Grupos {
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
-    @ManyToOne
+    @ManyToOne(targetEntity=PlanEstudios.class)
     @JoinColumn(name="id_plan_estudios")
     private PlanEstudios id_plan_estudios;
+    @ManyToOne(targetEntity=Turno.class)
+    @JoinColumn(name="id_turno")
+    private Turno turno_id;
     @OneToMany(mappedBy = "id_grupo")
     private List<Student> id_estudiante;
 
     public Grupos() {
     }
 
-    public Grupos(Long id, String nombre, PlanEstudios id_plan_estudios) {
+    public Grupos(Long id, String nombre, PlanEstudios id_plan_estudios, Turno turno_id) {
         this.id = id;
         this.nombre = nombre;
         this.id_plan_estudios = id_plan_estudios;
+        this.turno_id = turno_id;
     }
 
-    public Grupos(String nombre, PlanEstudios id_plan_estudios) {
+    public Grupos( String nombre, PlanEstudios id_plan_estudios, Turno turno_id) {
         this.nombre = nombre;
         this.id_plan_estudios = id_plan_estudios;
+        this.turno_id = turno_id;
     }
 
     public Long getId() {
@@ -79,5 +84,15 @@ public class Grupos {
     public void setId_estudiante(List<Student> id_estudiante) {
         this.id_estudiante = id_estudiante;
     }
+
+    public Turno getTurno_id() {
+        return turno_id;
+    }
+
+    public void setTurno_id(Turno turno_id) {
+        this.turno_id = turno_id;
+    }
+    
+    
 
 }
