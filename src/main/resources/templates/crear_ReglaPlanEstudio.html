@@ -52,21 +52,21 @@
                             <form th:action="@{/reglaPlanEstudio}" th:object="${nuevoRPlanEstudio}" method="post" class="row g-3">
                                 <div class="col-md-12">
                                     <label>Credito academico</label>
-                                    <input type="text" class="form-control" th:field="*{academico}" placeholder="Nombre(s)">
+                                    <input type="text" class="form-control" th:field="*{academico}" placeholder="Cuantos creditos academicos">
                                 </div>
                                 <div class="col-md-12">
                                     <label>Credito cultural</label>
-                                    <input type="text" class="form-control" th:field="*{cultural}" placeholder="Apellido Paterno">
+                                    <input type="text" class="form-control" th:field="*{cultural}" placeholder=" Cuantos creditos culturales">
                                 </div>
                                 <div class="col-md-12">
                                     <label>Credito deportivo</label>
-                                    <input type="text" class="form-control" th:field="*{deportivo}" placeholder="Apellido Materno">
+                                    <input type="text" class="form-control" th:field="*{deportivo}" placeholder=" Cuantos creditos deportivos">
                                 </div>
                                
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">GUARDAR</button>
 
                         </div>
                         </form><!-- End No Labels Form -->

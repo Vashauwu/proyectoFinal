@@ -41,7 +41,7 @@
             <main id="main" class="main">
 
                 <div class="pagetitle">
-                    <h1>Form Layouts</h1>
+                    <h1>CREAR PLAN DE ESTUDIOS</h1>
 
 
                     <div class="card">
@@ -57,16 +57,16 @@
 
                                 
                                 <label for="validationCustom04" class="form-label">carrera</label>
-                                <select th:id="carrerasOption" th:field="*{id_carreras}">
+                                <select th:id="carrerasOption" th:field="*{id_carrera}">
 
                                     <option th:each="carrera : ${allCarreras}" th:text="${carrera.nombre}" th:value="${carrera.id}" />
 
                                 </select>
                                 <br>
                                 <label for="validationCustom04" class="form-label">regla Plan de Estudios</label>
-                                <select th:id="ReglaplanEstudiosOption" th:field="*{id_plan_estudios}">
+                                <select th:id="ReglaplanEstudiosOption" th:field="*{id_regla_plan_estudio}">
 
-                                    <option th:each="reglaPlanEstudios : ${allReglaPlanEstudios}" th:text="$reglaPlanEstudios.nombre}" th:value="${$reglaPlanEstudios.id}" />
+                                    <option th:each="reglaPlanEstudio : ${allReglaPlanEstudio}" th:text="${reglaPlanEstudio.id}" th:value="${reglaPlanEstudio.id}" />
 
                                 </select>
                                 
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">GUARDAR</button>
 
                         </div>
                         </form><!-- End No Labels Form -->
