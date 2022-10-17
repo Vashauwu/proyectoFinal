@@ -27,12 +27,12 @@ public class PlanEstudiosServiceImpl implements PlanEstudiosService{
     }
 
     @Override
-    public PlanEstudios createEvent(PlanEstudios newPlanEstudios) {
+    public PlanEstudios createPlanEstudio(PlanEstudios newPlanEstudios) {
         return repository.saveAndFlush(newPlanEstudios);
     }
 
     @Override
-    public PlanEstudios updateEvent(PlanEstudios planEstudioUpdate) {
+    public PlanEstudios updatePlanEstudio(PlanEstudios planEstudioUpdate) {
         return repository.save(planEstudioUpdate);
     }
 

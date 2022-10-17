@@ -34,7 +34,7 @@ public class PlanEstudios {
     private List<Grupos> id_grupo;
     @OneToMany(mappedBy="id_plan_estudios")
     private List<Carrera> id_carrera;
-    @ManyToOne
+    @ManyToOne(targetEntity=ReglaPlanEstudio.class)
     @JoinColumn(name="id_regla_plan_estudio")
     private ReglaPlanEstudio id_regla_plan_estudio;
     

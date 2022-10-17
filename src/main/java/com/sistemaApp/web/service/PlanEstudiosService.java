@@ -14,9 +14,9 @@ import java.util.List;
 public interface PlanEstudiosService {
     public List<PlanEstudios> getPlanEstudiosall();
     
-    public PlanEstudios createEvent(PlanEstudios newPlanEstudios);
+    public PlanEstudios createPlanEstudio(PlanEstudios newPlanEstudios);
     
-    public PlanEstudios updateEvent(PlanEstudios planEstudioUpdate);
+    public PlanEstudios updatePlanEstudio(PlanEstudios planEstudioUpdate);
     
     public PlanEstudios getPlanEstudiosById(Long id);
     
