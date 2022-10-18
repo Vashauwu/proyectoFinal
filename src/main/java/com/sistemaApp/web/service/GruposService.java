@@ -14,11 +14,11 @@ import java.util.List;
 public interface GruposService {
     public List<Grupos> getGruposall();
     
-    public Grupos createEvent(Grupos newGrupo);
+    public Grupos createGrupo(Grupos newGrupo);
     
-    public Grupos updateEvent(Grupos grupoUpdate);
+    public Grupos updateGrupo(Grupos grupoUpdate);
     
-    public Grupos getEventById(Long id);
+    public Grupos getGrupoById(Long id);
     
     public void deleteGrupo(Long id);
 }

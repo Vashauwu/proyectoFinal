@@ -59,7 +59,7 @@
                                     <input type="text" class="form-control" th:field="*{apellido_paterno}" placeholder="Apellido Paterno">
                                 </div>
                                 <div class="col-md-12">
-                                    <label>Apellido Paterno</label>
+                                    <label>Apellido Materno</label>
                                     <input type="text" class="form-control" th:field="*{apellido_materno}" placeholder="Apellido Materno">
                                 </div>
                                 <div class="col-md-12">
@@ -71,25 +71,13 @@
                                     <label>Correo </label>
                                     <input type="text" class="form-control" th:field="*{email}" placeholder="Correo Electrónico">
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="validationCustom04" class="form-label">Semestre</label>
-                                    <select>
-
-                                      
-                                        <option th:each="semestres : ${semestreListado}" th:text="${semestres.nombre}" th:value="${semestres.nombre}" />
-                                     
-                                        
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por Favor Selecciona Un Semestre
-                                    </div>
-                                </div>
+                                
                                  <div class="col-md-3">
                                     <label for="validationCustom04" class="form-label">Grupos</label>
-                                    <select>
+                                     <select th:id="grupoOption" th:field="*{id_grupo}">
 
                                       
-                                        <option th:each="grupos : ${gruposListado}" th:text="${grupos.nombre}" th:value="${grupos.nombre}" />
+                                        <option th:each="grupos : ${gruposListado}" th:text="${grupos.nombre}" th:value="${grupos.id}" />
                                      
                                         
                                     </select>

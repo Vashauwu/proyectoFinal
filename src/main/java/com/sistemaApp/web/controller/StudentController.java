@@ -56,7 +56,7 @@ public class StudentController {
 
         Student estudiante = new Student();
         modl.addAttribute("nuevoStudiante", estudiante);
-        modl.addAttribute("semestreListado", serviceSemestre.getSemestresall());
+        
         modl.addAttribute("gruposListado", gruposService.getGruposall());
         return "crear_Student";
     }

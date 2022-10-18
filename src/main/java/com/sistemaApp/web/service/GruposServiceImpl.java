@@ -26,17 +26,17 @@ public class GruposServiceImpl implements GruposService{
     }
 
     @Override
-    public Grupos createEvent(Grupos newGrupo) {
+    public Grupos createGrupo(Grupos newGrupo) {
         return gruposRepository.saveAndFlush(newGrupo);
     }
 
     @Override
-    public Grupos updateEvent(Grupos grupoUpdate) {
+    public Grupos updateGrupo(Grupos grupoUpdate) {
        return gruposRepository.save(grupoUpdate);
     }
 
     @Override
-    public Grupos getEventById(Long id) {
+    public Grupos getGrupoById(Long id) {
         return gruposRepository.findById(id).get();
     }
 

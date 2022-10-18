@@ -32,7 +32,7 @@ public class Grupos {
     @JoinColumn(name="id_plan_estudios")
     private PlanEstudios id_plan_estudios;
     @ManyToOne(targetEntity=Turno.class)
-    @JoinColumn(name="id_turno")
+    @JoinColumn(name="id_turnos")
     private Turno turno_id;
     @OneToMany(mappedBy = "id_grupo")
     private List<Student> id_estudiante;
