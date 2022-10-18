@@ -30,27 +30,30 @@ public class PlanEstudios {
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
-    @OneToMany(mappedBy="id_plan_estudios")
+    @OneToMany(mappedBy = "id_plan_estudios")
     private List<Grupos> id_grupo;
-    @OneToMany(mappedBy="id_plan_estudios")
-    private List<Carrera> id_carrera;
-    @ManyToOne(targetEntity=ReglaPlanEstudio.class)
-    @JoinColumn(name="id_regla_plan_estudio")
+    @ManyToOne(targetEntity = Carrera.class)
+    @JoinColumn(name = "carrera_id")
+    private Carrera carrera_id;
+    @ManyToOne(targetEntity = ReglaPlanEstudio.class)
+    @JoinColumn(name = "id_regla_plan_estudio")
     private ReglaPlanEstudio id_regla_plan_estudio;
-    
 
     public PlanEstudios() {
     }
 
-    public PlanEstudios(Long id, String nombre, ReglaPlanEstudio id_regla_plan_estudio) {
+    public PlanEstudios(Long id, String nombre, ReglaPlanEstudio id_regla_plan_estudio, Carrera carrera_id) {
         this.id = id;
         this.nombre = nombre;
         this.id_regla_plan_estudio = id_regla_plan_estudio;
+        this.carrera_id = carrera_id;
+
     }
 
-    public PlanEstudios(String nombre, ReglaPlanEstudio id_regla_plan_estudio) {
+    public PlanEstudios(String nombre, ReglaPlanEstudio id_regla_plan_estudio, Carrera carrera_id) {
         this.nombre = nombre;
         this.id_regla_plan_estudio = id_regla_plan_estudio;
+        this.carrera_id = carrera_id;
     }
 
     public Long getId() {
@@ -68,8 +71,7 @@ public class PlanEstudios {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-   
+
     public ReglaPlanEstudio getId_regla_plan_estudio() {
         return id_regla_plan_estudio;
     }
@@ -86,14 +88,12 @@ public class PlanEstudios {
         this.id_grupo = id_grupo;
     }
 
-    public List<Carrera> getId_carrera() {
-        return id_carrera;
+    public Carrera getId_carrera() {
+        return carrera_id;
     }
 
-    public void setId_carrera(List<Carrera> id_carrera) {
-        this.id_carrera = id_carrera;
+    public void setId_carrera(Carrera carrera_id) {
+        this.carrera_id = carrera_id;
     }
-    
-    
-    
+
 }

@@ -4,6 +4,7 @@
  */
 package com.sistemaApp.web.entidad;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,24 +30,25 @@ public class Carrera {
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
-    @ManyToOne(targetEntity=PlanEstudios.class)
-    private PlanEstudios id_plan_estudios;
+    @OneToMany(mappedBy = "carrera_id")
+    private List<PlanEstudios> id_plan_estudios;
+    
     
 
     public Carrera() {
 
     }
 
-    public Carrera(Long id, String nombre, PlanEstudios id_plan_estudios) {
+    public Carrera(Long id, String nombre ) {
         this.id = id;
         this.nombre = nombre;
-        this.id_plan_estudios = id_plan_estudios;
+         
     }
 
-    public Carrera(String nombre, PlanEstudios id_plan_estudios) {
-        this.id = id;
+    public Carrera(String nombre ) {
+        
         this.nombre = nombre;
-        this.id_plan_estudios = id_plan_estudios;
+        
     }
 
     public Long getId() {
@@ -65,12 +67,14 @@ public class Carrera {
         this.nombre = nombre;
     }
 
-    public PlanEstudios getId_plan_estudios() {
+    public List<PlanEstudios> getId_plan_estudios() {
         return id_plan_estudios;
     }
 
-    public void setId_plan_estudios(PlanEstudios id_plan_estudios) {
+    public void setId_plan_estudios(List<PlanEstudios> id_plan_estudios) {
         this.id_plan_estudios = id_plan_estudios;
     }
 
+    
+    
 }
