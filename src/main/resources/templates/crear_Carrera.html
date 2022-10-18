@@ -41,7 +41,7 @@
             <main id="main" class="main">
 
                 <div class="pagetitle">
-                    <h1>CREAR PLAN DE ESTUDIOS</h1>
+                    <h1>CARRERA</h1>
 
 
                     <div class="card">
@@ -49,30 +49,13 @@
                             <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
 
                             <!-- No Labels Form -->
-                            <form th:action="@{/planEstudioSave}" th:object="${nuevoPlanEstudio}" method="post" class="row g-3">
+                            <form th:action="@{/Carreras}" th:object="${nuevaCarrera}" method="post" class="row g-3">
                                 <div class="col-md-12">
-                                    <label>Nombre </label>
-                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="Your Name">
+                                    <label>CARRERA</label>
+                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="agregar carrera">
                                 </div>
-
-                                
-                                <label for="validationCustom04" class="form-label">carrera</label>
-                                <select th:id="carrerasOption" th:field="*{id_carrera}">
-
-                                    <option th:each="carrera : ${allCarreras}" th:text="${carrera.id}" th:value="${carrera.id}" />
-
-                                </select>
-                                <br>
-                                <label for="validationCustom04" class="form-label">regla Plan de Estudios</label>
-                                <select th:id="ReglaplanEstudiosOption" th:field="*{id_regla_plan_estudio}">
-
-                                    <option th:each="reglaPlanEstudio : ${allReglaPlanEstudio}" th:text="${reglaPlanEstudio.id}" th:value="${reglaPlanEstudio.id}" />
-
-                                </select>
-                                
-                                
-                              
-
+                               
+                               
                         </div>
 
                         <div class="text-center">
