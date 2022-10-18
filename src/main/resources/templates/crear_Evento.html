@@ -54,15 +54,30 @@
                                     <label>Nombre </label>
                                     <input type="text" class="form-control" th:field="*{name}" placeholder="Your Name">
                                 </div>
-                                <div class="col-md-12">
-                                    <label>Tipo de Evento </label>
-                                    <input type="text" class="form-control" th:field="*{event_type}" placeholder="Your Name">
-                                </div>
+
                                 <div class="col-md-12">
                                     <label>fecha </label>
                                     <input type="text" class="form-control" th:field="*{date}" placeholder="Your Name">
                                 </div>
-                              
+                                <label for="validationCustom04" class="form-label">Validacion</label>
+                                <select th:id="validacionOption" th:field="*{id_validacion}">
+
+                                    <option th:each="validacion : ${allValidaciones}" th:text="${validacion.name}" th:value="${validacion.id}" />
+
+                                </select>
+                                <br>
+                                <label for="validationCustom04" class="form-label">Plan de Estudios</label>
+                                <select th:id="planEstudiosOption" th:field="*{id_plan_estudios}">
+
+                                    <option th:each="planEstudios : ${allPlanEstudios}" th:text="${planEstudios.nombre}" th:value="${planEstudios.id}" />
+
+                                </select>
+                                
+                                
+                                <div class="col-md-12">
+                                    <label>Horas del Evento para Creditos </label>
+                                    <input type="text" class="form-control" th:field="*{horas}" placeholder="Horas">
+                                </div>
 
                         </div>
 

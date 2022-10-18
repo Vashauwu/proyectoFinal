@@ -41,7 +41,7 @@
             <main id="main" class="main">
 
                 <div class="pagetitle">
-                    <h1>Form Layouts</h1>
+                    <h1>CARRERA</h1>
 
 
                     <div class="card">
@@ -49,47 +49,17 @@
                             <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
 
                             <!-- No Labels Form -->
-                            <form th:action="@{/student}" th:object="${nuevoStudiante}" method="post" class="row g-3">
+                            <form th:action="@{/Carreras}" th:object="${nuevaCarrera}" method="post" class="row g-3">
                                 <div class="col-md-12">
-                                    <label>Nombre(s)</label>
-                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="Nombre(s)">
+                                    <label>CARRERA</label>
+                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="agregar carrera">
                                 </div>
-                                <div class="col-md-12">
-                                    <label>Apellido Paterno</label>
-                                    <input type="text" class="form-control" th:field="*{apellido_paterno}" placeholder="Apellido Paterno">
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Apellido Materno</label>
-                                    <input type="text" class="form-control" th:field="*{apellido_materno}" placeholder="Apellido Materno">
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Matricula</label>
-                                    <input type="text" class="form-control" th:field="*{matricula}" placeholder="Matricula">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label>Correo </label>
-                                    <input type="text" class="form-control" th:field="*{email}" placeholder="Correo Electrónico">
-                                </div>
-                                
-                                 <div class="col-md-3">
-                                    <label for="validationCustom04" class="form-label">Grupos</label>
-                                     <select th:id="grupoOption" th:field="*{id_grupo}">
-
-                                      
-                                        <option th:each="grupos : ${gruposListado}" th:text="${grupos.nombre}" th:value="${grupos.id}" />
-                                     
-                                        
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por Favor Selecciona Un Semestre
-                                    </div>
-                                </div>
-
+                               
+                               
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">GUARDAR</button>
 
                         </div>
                         </form><!-- End No Labels Form -->

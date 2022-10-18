@@ -354,32 +354,30 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Matricula</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Acciones</th>
+                                          
+                                           
+                                            <th scope="col">Carrera</th>
+                                            
+                                            
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="estudiante: ${allStudeents}">
-                                            <td th:text="${estudiante.nombre}">Nombre</td>
-                                            <td th:text="${estudiante.apellido_paterno}">Apellido</td>
-                                            <td th:text="${estudiante.apellido_materno}">Apellido</td>
-                                            <td th:text="${estudiante.matricula}">Matricula</td>
-                                            <td th:text="${estudiante.email}">Email</td>
+                                        <tr th:each="NCarreras: ${allCarrera}">
+                                            <td th:text="${NCarreras.nombre}">CARRERA</td>
+                                            
+                                           
+                                          
                                             <td >
-                                                <a th:href="@{/student/edit/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Editar</a>
-                                                <a th:href="@{/student/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Eliminar</a>
+                                                <a th:href="@{/Carreras/edit/{id}(id=${NCarreras.id})}" class="btn btn-outline-info">Editar</a>
+                                                <a th:href="@{/Carreras/{id}(id=${NCarreras.id})}" class="btn btn-outline-info">Eliminar</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <a th:href="@{/student/new}" type="button" class="btn btn-outline-dark">Agregar</a>
+                            <a th:href="@{/Carreras/new}" type="button" class="btn btn-outline-dark">AGREGAR</a>
                         </div>
                     </div>
                 </div>

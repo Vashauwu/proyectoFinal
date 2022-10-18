@@ -4,17 +4,14 @@
  */
 package com.sistemaApp.web.entidad;
 
+import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 import javax.persistence.Table;
 
 /**
@@ -22,33 +19,24 @@ import javax.persistence.Table;
  * @author pc
  */
 @Entity
-@Table(name = "carrera")
-public class Carrera {
-
+@Table(name = "turnos")
+public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
-    @OneToMany(mappedBy = "carrera_id")
-    private List<PlanEstudios> id_plan_estudios;
+    @OneToMany(mappedBy = "turno_id")
+    private List<Grupos> turno_id;
     
     
-
-    public Carrera() {
-
+    public Turno(){
     }
-
-    public Carrera(Long id, String nombre ) {
-        this.id = id;
-        this.nombre = nombre;
-         
-    }
-
-    public Carrera(String nombre ) {
-        
-        this.nombre = nombre;
-        
+    
+    public Turno(Long id, String nombre){
+        this.id=id;
+        this.nombre=nombre;
+   
     }
 
     public Long getId() {
@@ -67,14 +55,13 @@ public class Carrera {
         this.nombre = nombre;
     }
 
-    public List<PlanEstudios> getId_plan_estudios() {
-        return id_plan_estudios;
+    public List<Grupos> getId_turno() {
+        return turno_id;
     }
 
-    public void setId_plan_estudios(List<PlanEstudios> id_plan_estudios) {
-        this.id_plan_estudios = id_plan_estudios;
+    public void setId_turno(List<Grupos> turno_id) {
+        this.turno_id = turno_id;
     }
-
     
     
 }

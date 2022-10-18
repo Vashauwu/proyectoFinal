@@ -37,17 +37,14 @@ public class Student {
     @Column(name = "correo", nullable = false, length = 50, unique = true)
     private String email;
     @ManyToOne
-    @JoinColumn(name="id_grupo")
+    @JoinColumn(name = "id_grupo")
     private Grupos id_grupo;
-    @ManyToOne
-    @JoinColumn(name="semestres_id")
-    private Semestre id_semestre;
 
     public Student() {
 
     }
 
-    public Student(Long id, String nombre, String apellido_paterno, String apellido_materno, String matricula, String email, Grupos id_grupo, Semestre id_semestre) {
+    public Student(Long id, String nombre, String apellido_paterno, String apellido_materno, String matricula, String email, Grupos id_grupo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido_paterno = apellido_paterno;
@@ -55,10 +52,10 @@ public class Student {
         this.matricula = matricula;
         this.email = email;
         this.id_grupo = id_grupo;
-        this.id_semestre = id_semestre;
+
     }
 
-    public Student(String nombre, String apellido_paterno, String apellido_materno, String matricula, String email, Grupos id_grupo, Semestre id_semestre) {
+    public Student(String nombre, String apellido_paterno, String apellido_materno, String matricula, String email, Grupos id_grupo) {
 
         this.nombre = nombre;
         this.apellido_paterno = apellido_paterno;
@@ -66,7 +63,7 @@ public class Student {
         this.matricula = matricula;
         this.email = email;
         this.id_grupo = id_grupo;
-        this.id_semestre = id_semestre;
+
     }
 
     public Long getId() {
@@ -123,14 +120,6 @@ public class Student {
 
     public void setId_grupo(Grupos id_grupo) {
         this.id_grupo = id_grupo;
-    }
-
-    public Semestre getId_semestre() {
-        return id_semestre;
-    }
-
-    public void setId_semestre(Semestre id_semestre) {
-        this.id_semestre = id_semestre;
     }
 
 }

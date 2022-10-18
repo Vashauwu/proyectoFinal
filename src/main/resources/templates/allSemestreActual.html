@@ -354,32 +354,34 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Matricula</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Acciones</th>
+                                          
+                                           
+                                            <th scope="col">Nombre </th>
+                                            <th scope="col">Fecha de inicio</th>
+                                            <th scope="col">Fecha de fin</th>
+                                            <th scope="col">activo</th>
+                                            
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="estudiante: ${allStudeents}">
-                                            <td th:text="${estudiante.nombre}">Nombre</td>
-                                            <td th:text="${estudiante.apellido_paterno}">Apellido</td>
-                                            <td th:text="${estudiante.apellido_materno}">Apellido</td>
-                                            <td th:text="${estudiante.matricula}">Matricula</td>
-                                            <td th:text="${estudiante.email}">Email</td>
+                                        <tr th:each="semestreActual: ${allSemestreActual}">
+                                            <td th:text="${semestreActual.nombre}">academico</td>
+                                            <td th:text="${semestreActual.fecha_inicio}">cultural</td>
+                                            <td th:text="${semestreActual.fecha_fin}">deportivo</td>
+                                            <td th:text="${semestreActual.activo}">deportivo</td>
+                                           
+                                          
                                             <td >
-                                                <a th:href="@{/student/edit/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Editar</a>
-                                                <a th:href="@{/student/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Eliminar</a>
+                                                <a th:href="@{/semestreActual/edit/{id}(id=${semestreActual.id})}" class="btn btn-outline-info">Editar</a>
+                                                <a th:href="@{/semestreActual/{id}(id=${semestreActual.id})}" class="btn btn-outline-info">Eliminar</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <a th:href="@{/student/new}" type="button" class="btn btn-outline-dark">Agregar</a>
+                            <a th:href="@{/semestreActual/new}" type="button" class="btn btn-outline-dark">AGREGAR</a>
                         </div>
                     </div>
                 </div>

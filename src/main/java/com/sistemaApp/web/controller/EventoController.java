@@ -10,6 +10,8 @@ package com.sistemaApp.web.controller;
  */
 import com.sistemaApp.web.entidad.Events;
 import com.sistemaApp.web.service.EventService;
+import com.sistemaApp.web.service.PlanEstudiosService;
+import com.sistemaApp.web.service.ValidacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +25,15 @@ public class EventoController {
 
     @Autowired
     private EventService service;
+    @Autowired
+    private ValidacionService validacionService;
+    @Autowired
+    private PlanEstudiosService planEstudiosService;
 
     @GetMapping({"/events"})
     public String listEvents(Model modl) {
+        modl.addAttribute("allPlanEstudios", planEstudiosService.getPlanEstudiosall());
+        modl.addAttribute("allValidaciones", validacionService.getValidacionAll());
         modl.addAttribute("allEvents", service.getEventsall());
         return "allEvents";
     }
@@ -33,6 +41,8 @@ public class EventoController {
     @GetMapping("/events/newEvent")
     public String crearEventForm(Model modl) {
         Events evento = new Events();
+        modl.addAttribute("allPlanEstudios", planEstudiosService.getPlanEstudiosall());
+        modl.addAttribute("allValidaciones", validacionService.getValidacionAll());
         modl.addAttribute("nuevoEvento", evento);
         return "crear_Evento";
     }

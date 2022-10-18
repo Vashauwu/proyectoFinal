@@ -354,32 +354,32 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Matricula</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Acciones</th>
+                                          
+                                           
+                                            <th scope="col">Credito academico</th>
+                                            <th scope="col">Credito cultural</th>
+                                            <th scope="col">Credito deportivo</th>
+                                            
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="estudiante: ${allStudeents}">
-                                            <td th:text="${estudiante.nombre}">Nombre</td>
-                                            <td th:text="${estudiante.apellido_paterno}">Apellido</td>
-                                            <td th:text="${estudiante.apellido_materno}">Apellido</td>
-                                            <td th:text="${estudiante.matricula}">Matricula</td>
-                                            <td th:text="${estudiante.email}">Email</td>
+                                        <tr th:each="RPlanEstudio: ${allReglaaPlanEstudio}">
+                                            <td th:text="${RPlanEstudio.academico}">academico</td>
+                                            <td th:text="${RPlanEstudio.cultural}">cultural</td>
+                                            <td th:text="${RPlanEstudio.deportivo}">deportivo</td>
+                                           
+                                          
                                             <td >
-                                                <a th:href="@{/student/edit/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Editar</a>
-                                                <a th:href="@{/student/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Eliminar</a>
+                                                <a th:href="@{/reglaPlanEstudio/edit/{id}(id=${RPlanEstudio.id})}" class="btn btn-outline-info">Editar</a>
+                                                <a th:href="@{/reglaPlanEstudio/{id}(id=${RPlanEstudio.id})}" class="btn btn-outline-info">Eliminar</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <a th:href="@{/student/new}" type="button" class="btn btn-outline-dark">Agregar</a>
+                            <a th:href="@{/reglaPlanEstudio/new}" type="button" class="btn btn-outline-dark">AGREGAR</a>
                         </div>
                     </div>
                 </div>

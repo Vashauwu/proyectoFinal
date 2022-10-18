@@ -12,9 +12,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -27,47 +29,55 @@ public class Events {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "nombre", nullable = false, length = 50)
     private String name;
-    
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fecha", nullable = false, length = 50)
     private Date date;
-    
+
+    @JoinColumn(name = "id_validacion")
     @ManyToOne(targetEntity = Validacion.class)
     private Validacion id_validacion;
-    
+
+    @JoinColumn(name = "id_plan_estudios")
     @ManyToOne(targetEntity = PlanEstudios.class)
     private PlanEstudios id_plan_estudios;
-    
+
+    @JoinColumn(name = "semestre_actual_id")
+    @ManyToOne(targetEntity = SemestreActual.class)
+    private SemestreActual semestre_actual_id;
+
     @OneToMany(mappedBy = "id_eventos")
     private List<Credito> id_credito;
-    
+
     @Column(name = "horas", nullable = false, length = 50)
     private int horas;
 
     public Events() {
-        
+
     }
 
-    public Events(Long id, String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas) {
-        
+    public Events(Long id, String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id) {
+
         this.id = id;
         this.name = name;
         this.date = date;
         this.id_validacion = id_validacion;
         this.id_plan_estudios = id_plan_estudios;
         this.horas = horas;
+        this.semestre_actual_id = semestre_actual_id;
 
     }
 
-    public Events(String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas) {
-        
+    public Events(String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id) {
         this.name = name;
         this.date = date;
         this.id_validacion = id_validacion;
         this.id_plan_estudios = id_plan_estudios;
         this.horas = horas;
+        this.semestre_actual_id = semestre_actual_id;
 
     }
 
@@ -126,5 +136,15 @@ public class Events {
     public void setId_credito(List<Credito> id_credito) {
         this.id_credito = id_credito;
     }
+
+    public SemestreActual getSemestre_actual_id() {
+        return semestre_actual_id;
+    }
+
+    public void setSemestre_actual_id(SemestreActual semestre_actual_id) {
+        this.semestre_actual_id = semestre_actual_id;
+    }
+    
+    
 
 }
