@@ -356,7 +356,9 @@
                                         <tr>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">carrera</th>
-                                            <th scope="col">Regla</th>
+                                            <th scope="col">Academico</th>
+                                            <th scope="col">Cultural</th>
+                                            <th scope="col">Deportivo</th>
                                             
                                            
 
@@ -365,8 +367,10 @@
                                     <tbody>
                                         <tr th:each="PEstudios: ${allPlanEstudios}">
                                             <td th:text="${PEstudios.nombre}">Nombre</td>
-                                            <td th:text="${PEstudios.id_carrera}">carrera</td>
-                                            <td th:text="${PEstudios.id_regla_plan_estudio}">Regla</td>
+                                            <td th:text="${PEstudios.id_carrera.nombre}">carrera</td>
+                                            <td th:text="${PEstudios.id_regla_plan_estudio.academico}">Regla</td>
+                                            <td th:text="${PEstudios.id_regla_plan_estudio.cultural}">Regla</td>
+                                            <td th:text="${PEstudios.id_regla_plan_estudio.deportivo}">Regla</td>
                                             <td >
                                                 <a th:href="@{/planEstudio/edit/{id}(id=${PEstudios.id})}" class="btn btn-outline-info">Editar</a>
                                                 <a th:href="@{/planEstudio/{id}(id=${PEstudios.id})}" class="btn btn-outline-info">Eliminar</a>

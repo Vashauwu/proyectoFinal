@@ -49,8 +49,9 @@ public class Events {
     @ManyToOne(targetEntity = SemestreActual.class)
     private SemestreActual semestre_actual_id;
 
-    @OneToMany(mappedBy = "id_eventos")
-    private List<Credito> id_credito;
+    @JoinColumn(name = "tipo_evento_id")
+    @ManyToOne(targetEntity = Credito.class)
+    private Credito id_credito;
 
     @Column(name = "horas", nullable = false, length = 50)
     private int horas;
@@ -59,7 +60,7 @@ public class Events {
 
     }
 
-    public Events(Long id, String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id) {
+    public Events(Long id, String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id, Credito id_credito) {
 
         this.id = id;
         this.name = name;
@@ -68,16 +69,18 @@ public class Events {
         this.id_plan_estudios = id_plan_estudios;
         this.horas = horas;
         this.semestre_actual_id = semestre_actual_id;
+        this.id_credito = id_credito;
 
     }
 
-    public Events(String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id) {
+    public Events(String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id, Credito id_credito) {
         this.name = name;
         this.date = date;
         this.id_validacion = id_validacion;
         this.id_plan_estudios = id_plan_estudios;
         this.horas = horas;
         this.semestre_actual_id = semestre_actual_id;
+        this.id_credito = id_credito;
 
     }
 
@@ -129,11 +132,11 @@ public class Events {
         this.horas = horas;
     }
 
-    public List<Credito> getId_credito() {
+    public Credito getId_credito() {
         return id_credito;
     }
 
-    public void setId_credito(List<Credito> id_credito) {
+    public void setId_credito(Credito id_credito) {
         this.id_credito = id_credito;
     }
 
@@ -144,7 +147,5 @@ public class Events {
     public void setSemestre_actual_id(SemestreActual semestre_actual_id) {
         this.semestre_actual_id = semestre_actual_id;
     }
-    
-    
 
 }

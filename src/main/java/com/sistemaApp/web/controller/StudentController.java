@@ -43,6 +43,8 @@ public class StudentController {
     @GetMapping({"/student"})
     public String listStudent(Model modl) {
         modl.addAttribute("allStudeents", service.getstudents());
+        
+        modl.addAttribute("allGrupos",gruposService.getGruposall());
         return "allStudents";
 
     }
