@@ -24,7 +24,7 @@ public class SemestreActualController {
     private SemestreActualService service;
     
      @GetMapping({"/semestreActual"})
-    public String listReglaPlanEstudio(Model modl) {
+    public String listSemestreActual(Model modl) {
        
         modl.addAttribute("allSemestreActual", service.getSemestreActualAll());
         return "allSemestreActual";

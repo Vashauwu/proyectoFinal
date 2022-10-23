@@ -71,15 +71,15 @@
                                     <label>Correo </label>
                                     <input type="text" class="form-control" th:field="*{email}" placeholder="Correo Electrónico">
                                 </div>
-                                
-                                 <div class="col-md-3">
-                                    <label for="validationCustom04" class="form-label">Grupos</label>
-                                     <select th:id="grupoOption" th:field="*{id_grupo}">
 
-                                      
+                                <div class="col-md-3">
+                                    <label for="validationCustom04" class="form-label">Grupos</label>
+                                    <select th:id="grupoOption" th:field="*{id_grupo}">
+
+
                                         <option th:each="grupos : ${gruposListado}" th:text="${grupos.nombre}" th:value="${grupos.id}" />
-                                     
-                                        
+
+
                                     </select>
                                     <div class="invalid-feedback">
                                         Por Favor Selecciona Un Semestre

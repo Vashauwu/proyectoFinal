@@ -55,12 +55,28 @@
                                     <input type="text" class="form-control" th:field="*{name}" placeholder="Your Name">
                                 </div>
                                 <div class="col-md-12">
-                                    <label>Apellido </label>
-                                    <input type="text" class="form-control" th:field="*{date}" placeholder="Your Name">
+                                    <label>Fecha </label>
+                                    <input type="date" class="form-control" th:field="*{date}" placeholder="Your Name">
                                 </div>
                                 <div class="col-md-12">
-                                    <label>Matricula </label>
-                                    <input type="text" class="form-control" th:field="*{event_type}" placeholder="Your Name">
+                                    <label>Tipo de Evento </label>
+                                    <input type="text" class="form-control" th:field="*{id_credito.nombre_evento}" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Validacion </label>
+                                    <input type="text" class="form-control" th:field="*{id_validacion.name}" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Plan de estudio </label>
+                                    <input type="text" class="form-control" th:field="*{id_plan_estudios.nombre}" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Semestre Actual </label>
+                                    <input type="text" class="form-control" th:field="*{semestre_actual_id}" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Horas </label>
+                                    <input type="text" class="form-control" th:field="*{horas}" placeholder="Your Name">
                                 </div>
 
                         </div>

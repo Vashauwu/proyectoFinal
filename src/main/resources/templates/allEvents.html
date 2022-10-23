@@ -355,11 +355,15 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Apellido Paterno</th>
-                                            <th scope="col">Matricula</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Validacion</th>
+                                            <th scope="col">Plan de estudios</th>
+                                            <th scope="col">Horas</th>
+                                            <th scope="col">Semestre Actual</th>
+                                            <th scope="col">Tipo de evento</th>
                                             <th scope="col">Acciones</th>
+                                            <th scope="col">Acciones</th>
+                                            <th scope="col">Acciones</th> 
 
                                         </tr>
                                     </thead>
@@ -367,16 +371,30 @@
                                         <tr th:each="evento: ${allEvents}">
                                             <td th:text="${evento.name}">Nombre del Evento</td>
                                             <td th:text="${evento.date}">Fecha del Evento</td>
-                                            <td >
+                                            <td th:text="${evento.id_validacion.name}">Validacion</td>
+                                            <td th:text="${evento.id_plan_estudios.nombre}">Plan de estudios</td> 
+                                            <td th:text="${evento.horas}">Horas</td> 
+                                            <td th:text="${evento.semestre_actual_id.nombre}">Semestre Actua</td>
+                                            <td th:text="${evento.id_credito.nombre_evento}">Tipo de evento</td> 
+                                            <td>
                                                 <a th:href="@{/event/edit/{id}(id=${evento.id})}" class="btn btn-outline-info">Editar</a>
-                                                <a th:href="@{/event/{id}(id=${evento.id})}" class="btn btn-outline-info">Eliminar</a>
+                                                
+                                               
+                                            </td>
+                                             <td>
+                                                
+                                              <a th:href="@{/event/{id}(id=${evento.id})}" class="btn btn-outline-info">Eliminar</a>
+                                            </td>
+                                            <td>
+                                                
+                                               <a th:href="@{/event/lista/{id}(id=${evento.id})}" class="btn btn-outline-info">Lista de asistencia</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <a th:href="@{/events/newEvent}" type="button" class="btn btn-outline-dark">Dark</a>
+                            <a th:href="@{/events/newEvent}" type="button" class="btn btn-outline-dark">Registrar Evento</a>
                         </div>
                     </div>
                 </div>

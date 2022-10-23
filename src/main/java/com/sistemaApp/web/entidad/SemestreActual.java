@@ -33,7 +33,7 @@ public class SemestreActual {
     private Date fecha_fin;
     @Column(name = "activo", nullable = false, length = 50)
     private Boolean activo;
-    @OneToMany(mappedBy = "id_semestreActual")
+    @OneToMany(mappedBy = "semestre_actual_id")
     private List<Semestre> id_semestre;
     @OneToMany(mappedBy = "semestre_actual_id")
     private List<Events> id_events;

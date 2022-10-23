@@ -9,8 +9,11 @@ package com.sistemaApp.web.controller;
  * @author pc
  */
 import com.sistemaApp.web.entidad.Events;
+import com.sistemaApp.web.entidad.SemestreActual;
+import com.sistemaApp.web.service.CreditosService;
 import com.sistemaApp.web.service.EventService;
 import com.sistemaApp.web.service.PlanEstudiosService;
+import com.sistemaApp.web.service.SemestreActualService;
 import com.sistemaApp.web.service.ValidacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +32,10 @@ public class EventoController {
     private ValidacionService validacionService;
     @Autowired
     private PlanEstudiosService planEstudiosService;
+    @Autowired
+    private SemestreActualService semestreActualService;
+    @Autowired 
+    private CreditosService creditoService;
 
     @GetMapping({"/events"})
     public String listEvents(Model modl) {
@@ -43,6 +50,8 @@ public class EventoController {
         Events evento = new Events();
         modl.addAttribute("allPlanEstudios", planEstudiosService.getPlanEstudiosall());
         modl.addAttribute("allValidaciones", validacionService.getValidacionAll());
+        modl.addAttribute("allSemestreActual", semestreActualService.getSemestreActualAll());
+        modl.addAttribute("allCredito", creditoService.getCreditosall());
         modl.addAttribute("nuevoEvento", evento);
         return "crear_Evento";
     }
@@ -57,6 +66,12 @@ public class EventoController {
     public String updateEventForm(@PathVariable Long id, Model modl) {
         modl.addAttribute("event", service.getEventById(id));
         return "edit_EventForm";
+    }
+    
+    @GetMapping("/event/lista/{id}")
+    public String listaEvent(@PathVariable Long id, Model modl) {
+        modl.addAttribute("event", service.getEventById(id));
+        return "listaEvent";
     }
 
     @PostMapping("/event/{id}")

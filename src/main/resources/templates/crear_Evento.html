@@ -74,10 +74,24 @@
                                 </select>
                                 
                                 
+                                
                                 <div class="col-md-12">
                                     <label>Horas del Evento para Creditos </label>
                                     <input type="text" class="form-control" th:field="*{horas}" placeholder="Horas">
                                 </div>
+                                
+                                <label for="validationCustom04" class="form-label">Semestre Actual</label>
+                                <select th:id="planSemestreActualOption" th:field="*{semestre_actual_id}">
+
+                                    <option th:each="semestreActual : ${allSemestreActual}" th:text="${semestreActual.nombre}" th:value="${semestreActual.id}" />
+
+                                </select>
+                                <label for="validationCustom04" class="form-label">Tipo de credito</label>
+                                <select th:id="tipoCreditoOption" th:field="*{id_credito}">
+
+                                    <option th:each="credito : ${allCredito}" th:text="${credito.nombre_evento}" th:value="${credito.id}" />
+
+                                </select>
 
                         </div>
 

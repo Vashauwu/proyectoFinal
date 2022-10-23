@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * @author pc
  */
 @Entity
-@Table(name = "tipo_credito")
+@Table(name = "tipo_evento")
 public class Credito {
 
     @Id

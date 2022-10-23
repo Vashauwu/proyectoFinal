@@ -5,6 +5,8 @@
 package com.sistemaApp.web.controller;
 
 import com.sistemaApp.web.entidad.Semestre;
+import com.sistemaApp.web.service.GruposService;
+import com.sistemaApp.web.service.SemestreActualService;
 import com.sistemaApp.web.service.SemestreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,9 +25,15 @@ public class SemestreController {
 
     @Autowired
     private SemestreService service;
+    
+    @Autowired 
+    private SemestreActualService semestreActualServce;
+    
+    @Autowired
+    private GruposService grupoService;
 
     @GetMapping({"/semestre"})
-    public String listReglaPlanEstudio(Model modl) {
+    public String listAllSemestre(Model modl) {
 
         modl.addAttribute("allSemestres", service.getSemestresall());
         return "allSemestre";
@@ -35,6 +43,9 @@ public class SemestreController {
     public String crearSemestreActualForm(Model modl) {
         Semestre semestreCrear = new Semestre();
         modl.addAttribute("nuevoSemestre", semestreCrear);
+        modl.addAttribute("allSemestreActual", semestreActualServce.getSemestreActualAll());
+        modl.addAttribute("allGrupos", grupoService.getGruposall());
+        
         return "crear_Semestre";
     }
 
@@ -47,6 +58,7 @@ public class SemestreController {
     @GetMapping("/semestre/edit/{id}")
     public String updateSemestreActualForm(@PathVariable Long id, Model modl) {
         modl.addAttribute("semestreActual", service.getSemestreById(id));
+        modl.addAttribute("allGrupos",grupoService.getGruposall());
         return "edit_Semestre";
     }
 
@@ -55,8 +67,8 @@ public class SemestreController {
 
         semestre.setId(id);
         semestre.setNombre(semestre.getNombre());
-        semestre.setId_semestreActual(semestre.getId_semestreActual());
-        semestre.setId_grupos(semestre.getId_grupos());
+        semestre.setSemestre_actual_id(semestre.getSemestre_actual_id());
+        semestre.setGrupos_id(semestre.getGrupos_id());
 
         service.updateSemestre(semestre);
         return "redirect:/semestre";

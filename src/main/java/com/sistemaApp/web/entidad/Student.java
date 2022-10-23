@@ -4,13 +4,16 @@
  */
 package com.sistemaApp.web.entidad;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -39,6 +42,9 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "id_grupo")
     private Grupos id_grupo;
+    
+    @ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Events> eventos;
 
     public Student() {
 
@@ -122,4 +128,14 @@ public class Student {
         this.id_grupo = id_grupo;
     }
 
+    public List<Events> getListaAsistenciaEstudiantes() {
+        return eventos;
+    }
+
+    public void setListaAsistenciaEstudiantes(List<Events> eventos) {
+        this.eventos = eventos;
+    }
+
+    
+    
 }

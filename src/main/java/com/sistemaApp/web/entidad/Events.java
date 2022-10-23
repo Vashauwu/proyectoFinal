@@ -9,12 +9,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -52,6 +54,9 @@ public class Events {
     @JoinColumn(name = "tipo_evento_id")
     @ManyToOne(targetEntity = Credito.class)
     private Credito id_credito;
+
+    @ManyToMany(mappedBy = "eventos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Student> listaAsistenciaEstudiantes;
 
     @Column(name = "horas", nullable = false, length = 50)
     private int horas;
@@ -140,6 +145,7 @@ public class Events {
         this.id_credito = id_credito;
     }
 
+
     public SemestreActual getSemestre_actual_id() {
         return semestre_actual_id;
     }
@@ -147,5 +153,15 @@ public class Events {
     public void setSemestre_actual_id(SemestreActual semestre_actual_id) {
         this.semestre_actual_id = semestre_actual_id;
     }
+
+    public List<Student> getListaAsistenciaEstudiantes() {
+        return listaAsistenciaEstudiantes;
+    }
+
+    public void setListaAsistenciaEstudiantes(List<Student> listaAsistenciaEstudiantes) {
+        this.listaAsistenciaEstudiantes = listaAsistenciaEstudiantes;
+    }
+    
+    
 
 }

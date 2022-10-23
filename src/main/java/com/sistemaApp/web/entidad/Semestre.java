@@ -28,29 +28,29 @@ public class Semestre {
     private Long id;
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
-    @JoinColumn(name = "id_semestreActual")
+    @JoinColumn(name = "semestre_actual_id")
     @ManyToOne(targetEntity = SemestreActual.class)
-    private SemestreActual id_semestreActual;
-    @JoinColumn(name = "id_grupos")
+    private SemestreActual semestre_actual_id;
+    @JoinColumn(name = "grupos_id")
     @ManyToOne(targetEntity = Grupos.class)
-    private Grupos id_grupos;
+    private Grupos grupos_id;
 
     public Semestre() {
 
     }
 
-    public Semestre(Long id, String nombre, SemestreActual id_semestreActual, Grupos id_grupos) {
+    public Semestre(Long id, String nombre, SemestreActual semestre_actual_id, Grupos grupos_id) {
         this.id = id;
         this.nombre = nombre;
-        this.id_semestreActual = id_semestreActual;
-        this.id_grupos = id_grupos;
+        this.semestre_actual_id = semestre_actual_id;
+        this.grupos_id = grupos_id;
     }
 
-    public Semestre( String nombre, SemestreActual id_semestreActual, Grupos id_grupos) {
-        
+    public Semestre(String nombre, SemestreActual semestre_actual_id, Grupos grupos_id) {
+
         this.nombre = nombre;
-        this.id_semestreActual = id_semestreActual;
-        this.id_grupos = id_grupos;
+        this.semestre_actual_id = semestre_actual_id;
+        this.grupos_id = grupos_id;
     }
 
     public Long getId() {
@@ -69,22 +69,20 @@ public class Semestre {
         this.nombre = nombre;
     }
 
-    public SemestreActual getId_semestreActual() {
-        return id_semestreActual;
+    public SemestreActual getSemestre_actual_id() {
+        return semestre_actual_id;
     }
 
-    public void setId_semestreActual(SemestreActual id_semestreActual) {
-        this.id_semestreActual = id_semestreActual;
+    public void setSemestre_actual_id(SemestreActual semestre_actual_id) {
+        this.semestre_actual_id = semestre_actual_id;
     }
 
-    public Grupos getId_grupos() {
-        return id_grupos;
+    public Grupos getGrupos_id() {
+        return grupos_id;
     }
 
-    public void setId_grupos(Grupos id_grupos) {
-        this.id_grupos = id_grupos;
+    public void setGrupos_id(Grupos grupos_id) {
+        this.grupos_id = grupos_id;
     }
-    
-    
 
 }
