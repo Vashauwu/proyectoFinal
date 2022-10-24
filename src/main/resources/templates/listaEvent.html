@@ -72,17 +72,13 @@
                                                         <td th:text="${evento.horas}">Horas</td> 
                                                         <td th:text="${evento.semestre_actual_id.nombre}">Semestre Actua</td>
                                                         <td th:text="${evento.id_credito.nombre_evento}">Tipo de evento</td> 
-                                                        <td>
-                                                            <a th:href="@{/event/edit/{id}(id=${evento.id})}" class="btn btn-outline-info">Editar</a>
-                                                            <a th:href="@{/event/{id}(id=${evento.id})}" class="btn btn-outline-info">Eliminar</a>
-                                                            <a th:href="@{/event/lista/{id}(id=${evento.id})}" class="btn btn-outline-info">Lista de asistencia</a>
-                                                        </td>
+                                                        
                                                     </tr>
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                        <a th:href="@{/events/newEvent}" type="button" class="btn btn-outline-dark">Registrar Evento</a>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -4,7 +4,9 @@
  */
 package com.sistemaApp.web.entidad;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,8 +45,8 @@ public class Student {
     @JoinColumn(name = "id_grupo")
     private Grupos id_grupo;
     
-    @ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Events> eventos;
+    @ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="lista")
+    private Set<Events> eventos = new HashSet<>();
 
     public Student() {
 
@@ -128,13 +130,19 @@ public class Student {
         this.id_grupo = id_grupo;
     }
 
-    public List<Events> getListaAsistenciaEstudiantes() {
+    public Set<Events> getEventos() {
         return eventos;
     }
 
-    public void setListaAsistenciaEstudiantes(List<Events> eventos) {
+    public void setEventos(Set<Events> eventos) {
         this.eventos = eventos;
     }
+
+   
+
+   
+
+    
 
     
     

@@ -10,11 +10,14 @@ package com.sistemaApp.web.controller;
  */
 import com.sistemaApp.web.entidad.Events;
 import com.sistemaApp.web.entidad.SemestreActual;
+import com.sistemaApp.web.entidad.Student;
 import com.sistemaApp.web.service.CreditosService;
 import com.sistemaApp.web.service.EventService;
 import com.sistemaApp.web.service.PlanEstudiosService;
 import com.sistemaApp.web.service.SemestreActualService;
+import com.sistemaApp.web.service.StudentService;
 import com.sistemaApp.web.service.ValidacionService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +39,8 @@ public class EventoController {
     private SemestreActualService semestreActualService;
     @Autowired 
     private CreditosService creditoService;
+    @Autowired
+    private StudentService servicioEstudiante;
 
     @GetMapping({"/events"})
     public String listEvents(Model modl) {
@@ -70,7 +75,9 @@ public class EventoController {
     
     @GetMapping("/event/lista/{id}")
     public String listaEvent(@PathVariable Long id, Model modl) {
+        List<Student> estudiantes = servicioEstudiante.getstudents();
         modl.addAttribute("event", service.getEventById(id));
+        modl.addAttribute("estudiantes", estudiantes);
         return "listaEvent";
     }
 

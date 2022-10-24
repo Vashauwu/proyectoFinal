@@ -5,7 +5,9 @@
 package com.sistemaApp.web.entidad;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -55,8 +58,13 @@ public class Events {
     @ManyToOne(targetEntity = Credito.class)
     private Credito id_credito;
 
-    @ManyToMany(mappedBy = "eventos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Student> listaAsistenciaEstudiantes;
+    @ManyToMany
+    @JoinTable(
+            name = "eventos_has_estudiantes", schema = "registro_credito",
+            joinColumns = @JoinColumn(name = "eventos_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "estudiantes_id", referencedColumnName = "id")
+    )
+    private Set<Student> lista = new HashSet<>();
 
     @Column(name = "horas", nullable = false, length = 50)
     private int horas;
@@ -145,7 +153,6 @@ public class Events {
         this.id_credito = id_credito;
     }
 
-
     public SemestreActual getSemestre_actual_id() {
         return semestre_actual_id;
     }
@@ -154,14 +161,14 @@ public class Events {
         this.semestre_actual_id = semestre_actual_id;
     }
 
-    public List<Student> getListaAsistenciaEstudiantes() {
-        return listaAsistenciaEstudiantes;
+    public Set<Student> getListaAsistenciaEstudiantes() {
+        return lista;
     }
 
-    public void setListaAsistenciaEstudiantes(List<Student> listaAsistenciaEstudiantes) {
-        this.listaAsistenciaEstudiantes = listaAsistenciaEstudiantes;
+    public void setListaAsistenciaEstudiantes(Set<Student> lista) {
+        this.lista = lista;
     }
-    
+
     
 
 }
