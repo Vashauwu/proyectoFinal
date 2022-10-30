@@ -4,15 +4,15 @@
  */
 package com.sistemaApp.web.repository;
 
-import com.sistemaApp.web.entidad.SemestreActual;
+import com.sistemaApp.web.entidad.Turno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author hp
+ * @author Sergio Merino
  */
 @Repository
-public interface SemestreActualRepository extends JpaRepository< SemestreActual, Long>{
+public interface TurnoRepository extends JpaRepository<Turno, Long>{
     
 }
