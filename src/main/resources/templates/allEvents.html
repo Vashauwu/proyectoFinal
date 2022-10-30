@@ -364,6 +364,7 @@
                                             <th scope="col">Acciones</th>
                                             <th scope="col">Acciones</th>
                                             <th scope="col">Acciones</th> 
+                                            <th scope="col">Acciones</th> 
 
                                         </tr>
                                     </thead>
@@ -384,6 +385,10 @@
                                              <td>
                                                 
                                               <a th:href="@{/event/{id}(id=${evento.id})}" class="btn btn-outline-info">Eliminar</a>
+                                            </td>
+                                            <td>
+                                                
+                                               <a th:href="@{/event/lista/{id}(id=${evento.id})}" class="btn btn-outline-info">Lista de asistencia</a>
                                             </td>
                                             <td>
                                                 

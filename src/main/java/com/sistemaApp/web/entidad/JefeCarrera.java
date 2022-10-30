@@ -36,6 +36,7 @@ public class JefeCarrera {
     @Column(name = "telefono", nullable = false, length = 10)
     private int telefono;
     @OneToOne
+    @JoinColumn(name = "id_unidad_academica")
     private UnidadAcademica id_unidad_academica;
 
     public JefeCarrera() {

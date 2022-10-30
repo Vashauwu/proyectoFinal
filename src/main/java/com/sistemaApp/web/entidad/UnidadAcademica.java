@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,6 +27,7 @@ public class UnidadAcademica {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
     @OneToOne(mappedBy="id_unidad_academica")
+    
     private JefeCarrera id_jefe_carrera;
     
     public UnidadAcademica(){

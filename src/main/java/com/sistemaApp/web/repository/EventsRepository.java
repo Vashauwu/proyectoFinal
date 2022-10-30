@@ -6,6 +6,7 @@ package com.sistemaApp.web.repository;
 
 
 import com.sistemaApp.web.entidad.Events;
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author pc
  */
 @Repository
-public interface EventsRepository extends JpaRepository<Events, Long>{
-    
+public interface EventsRepository extends JpaRepository<Events, Serializable>{
+       
 }

@@ -97,6 +97,20 @@ public class Events {
 
     }
 
+    public Events(String name, Date date, Validacion id_validacion, PlanEstudios id_plan_estudios, int horas, SemestreActual semestre_actual_id, Credito id_credito,Set<Student> lista) {
+        this.name = name;
+        this.date = date;
+        this.id_validacion = id_validacion;
+        this.id_plan_estudios = id_plan_estudios;
+        this.horas = horas;
+        this.semestre_actual_id = semestre_actual_id;
+        this.id_credito = id_credito;
+        this.lista = lista;
+
+    }
+
+    
+
     public Long getId() {
         return id;
     }
@@ -161,14 +175,12 @@ public class Events {
         this.semestre_actual_id = semestre_actual_id;
     }
 
-    public Set<Student> getListaAsistenciaEstudiantes() {
+    public Set<Student> getLista() {
         return lista;
     }
 
-    public void setListaAsistenciaEstudiantes(Set<Student> lista) {
+    public void setLista(Set<Student> lista) {
         this.lista = lista;
     }
-
-    
 
 }

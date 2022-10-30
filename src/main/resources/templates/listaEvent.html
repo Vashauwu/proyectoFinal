@@ -65,14 +65,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr th:each="evento: ${event}">
-                                                        <td th:text="${evento.listaAsistenciaEstudiantes}">Nombre del Evento</td>
-                                                        <td th:text="${evento.date}">Fecha del Evento</td>
-                                                        <td th:text="${evento.id_validacion.name}">Validacion 
-                                                        <td th:text="${evento.horas}">Horas</td> 
-                                                        <td th:text="${evento.semestre_actual_id.nombre}">Semestre Actua</td>
-                                                        <td th:text="${evento.id_credito.nombre_evento}">Tipo de evento</td> 
-                                                        
+                                                    <tr th:each="evento: ${event}" >
+                                                        <td th:text="${evento.lista}">Nombre del Evento</td>
+                                                       
+
                                                     </tr>
                                                 </tbody>
                                             </table>
