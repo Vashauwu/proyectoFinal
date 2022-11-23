@@ -4,17 +4,15 @@
  */
 package com.sistemaApp.web.repository;
 
-
-import com.sistemaApp.web.entidad.Events;
-import java.io.Serializable;
+import com.sistemaApp.web.entidad.Turno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author pc
+ * @author Sergio Merino
  */
 @Repository
-public interface EventsRepository extends JpaRepository<Events, Serializable>{
-       
+public interface TurnoRepository extends JpaRepository<Turno, Long>{
+    
 }

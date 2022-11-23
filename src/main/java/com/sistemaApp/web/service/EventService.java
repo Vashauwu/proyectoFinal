@@ -7,6 +7,7 @@ package com.sistemaApp.web.service;
 import com.sistemaApp.web.entidad.Events;
 import java.util.List;
 
+
 /**
  *
  * @author pc
@@ -22,4 +23,6 @@ public interface EventService {
     public Events getEventById(Long id);
     
     public void deleteEvent(Long id);
+    
+    
 }

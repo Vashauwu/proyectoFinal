@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * @author pc
  */
 @Entity
-@Table(name = "tipo_credito")
+@Table(name = "tipo_evento")
 public class Credito {
 
     @Id
@@ -32,9 +32,8 @@ public class Credito {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre_evento;
     
-    @ManyToOne
-    @JoinColumn(name = "eventos_id")
-    private Events id_eventos;
+    @OneToMany(mappedBy="id_credito")
+    private List<Events> id_eventos;
 
     public Credito() {
 
@@ -68,11 +67,11 @@ public class Credito {
         this.nombre_evento = nombre_evento;
     }
 
-    public Events getEventos_id() {
+    public List<Events> getEventos_id() {
         return id_eventos;
     }
 
-    public void setEventos_id(Events id_eventos) {
+    public void setEventos_id(List<Events> id_eventos) {
         this.id_eventos = id_eventos;
     }
 

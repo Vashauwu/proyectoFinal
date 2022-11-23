@@ -43,20 +43,16 @@ public class StudentController {
     @GetMapping({"/student"})
     public String listStudent(Model modl) {
         modl.addAttribute("allStudeents", service.getstudents());
+        
+        modl.addAttribute("allGrupos",gruposService.getGruposall());
         return "allStudents";
 
     }
 
     @GetMapping("/student/new")
     public String crearStudentForm(Model modl) {
-
-//        SemestreServiceImpl servicioSemestre = new SemestreServiceImpl();
-//
-//        List<Semestre> semestreListado = servicioSemestre.getSemestresall();
-
         Student estudiante = new Student();
         modl.addAttribute("nuevoStudiante", estudiante);
-        
         modl.addAttribute("gruposListado", gruposService.getGruposall());
         return "crear_Student";
     }
@@ -70,6 +66,7 @@ public class StudentController {
     @GetMapping("/student/edit/{id}")
     public String updateStudentForm(@PathVariable Long id, Model modl) {
         modl.addAttribute("student", service.getStudentById(id));
+        modl.addAttribute("allGrupos",gruposService.getGruposall());
         return "edit_student";
     }
 

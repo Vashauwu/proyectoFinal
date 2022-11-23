@@ -359,17 +359,20 @@
                                             <th scope="col">Apellido Paterno</th>
                                             <th scope="col">Matricula</th>
                                             <th scope="col">Email</th>
+                                            <th scope="col">Grupos</th>
                                             <th scope="col">Acciones</th>
+                                            
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="estudiante: ${allStudeents}">
                                             <td th:text="${estudiante.nombre}">Nombre</td>
-                                            <td th:text="${estudiante.apellido_paterno}">Apellido</td>
-                                            <td th:text="${estudiante.apellido_materno}">Apellido</td>
+                                            <td th:text="${estudiante.apellido_paterno}">Apellido Paterno</td>
+                                            <td th:text="${estudiante.apellido_materno}">Apellido Materno</td>
                                             <td th:text="${estudiante.matricula}">Matricula</td>
                                             <td th:text="${estudiante.email}">Email</td>
+                                            <td th:text="${estudiante.id_grupo.nombre}">grupo</td>
                                             <td >
                                                 <a th:href="@{/student/edit/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Editar</a>
                                                 <a th:href="@{/student/{id}(id=${estudiante.id})}" class="btn btn-outline-info">Eliminar</a>

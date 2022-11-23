@@ -49,25 +49,11 @@
                             <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
 
                             <!-- No Labels Form -->
-                            <form th:action="@{/semestre}" th:object="${nuevoSemestre}" method="post" class="row g-3">
+                            <form th:action="@{/turno}" th:object="${nuevoTurno}" method="post" class="row g-3">
                                 <div class="col-md-12">
-                                    <label>Nombre del semeste</label>
-                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="Cuantos creditos academicos">
+                                    <label>Nombre del Turno</label>
+                                    <input type="text" class="form-control" th:field="*{nombre}" placeholder="Turno">
                                 </div>
-                                <label for="validationCustom04" class="form-label">Semestre Actual</label>
-                                <select th:id="semestreSemestreActualOption" th:field="*{semestre_actual_id}">
-
-                                    <option th:each="semestreActual : ${allSemestreActual}" th:text="${semestreActual.id}" th:value="${semestreActual.id}" />
-
-                                </select>
-                                <label for="validationCustom04" class="form-label">Grupo</label>
-                                <select th:id="semestreGRuposOption" th:field="*{grupos_id}">
-
-                                    <option th:each="gruposAll : ${allGrupos}" th:text="${gruposAll.id}" th:value="${gruposAll.id}" />
-
-                                </select>
-
-
                         </div>
 
                         <div class="text-center">

@@ -4,13 +4,19 @@
  */
 package com.sistemaApp.web.entidad;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,6 +27,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "estudiantes")
+
 public class Student {
 
     @Id
@@ -40,6 +47,8 @@ public class Student {
     @JoinColumn(name = "id_grupo")
     private Grupos id_grupo;
 
+    @ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="lista")
+    private Set<Events> eventos = new HashSet<>();
     public Student() {
 
     }
@@ -65,6 +74,9 @@ public class Student {
         this.id_grupo = id_grupo;
 
     }
+
+    
+    
 
     public Long getId() {
         return id;
@@ -122,4 +134,72 @@ public class Student {
         this.id_grupo = id_grupo;
     }
 
+    public Set<Events> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(Set<Events> eventos) {
+        this.eventos = eventos;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    
+
+   
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Student other = (Student) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido_paterno, other.apellido_paterno)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido_materno, other.apellido_materno)) {
+            return false;
+        }
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.id_grupo, other.id_grupo)) {
+            return false;
+        }
+        return Objects.equals(this.eventos, other.eventos);
+    }
+
+    @Override
+    public String toString() {
+        return nombre ;
+    }
+
+    
+
+    
+    
+    
+    
+    
+    
 }

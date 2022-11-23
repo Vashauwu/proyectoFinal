@@ -38,7 +38,7 @@ public class Validacion {
         this.name = name;
         
     }
-    public Validacion( String name) {
+    public Validacion( String name) {   
       
         this.name = name;
        

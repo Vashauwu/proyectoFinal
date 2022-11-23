@@ -5,6 +5,7 @@
 package com.sistemaApp.web.repository;
 
 import com.sistemaApp.web.entidad.Student;
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author pc
  */
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long>{
+public interface StudentRepository extends JpaRepository<Student, Serializable>{
     
 }

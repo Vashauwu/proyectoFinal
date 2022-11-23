@@ -354,33 +354,26 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">carrera</th>
-                                            <th scope="col">Academico</th>
-                                            <th scope="col">Cultural</th>
-                                            <th scope="col">Deportivo</th>
-                                            
-                                           
-
+                                            <th scope="col">Nombre del Turno</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="PEstudios: ${allPlanEstudios}">
-                                            <td th:text="${PEstudios.nombre}">Nombre</td>
-                                            <td th:text="${PEstudios.id_carrera.nombre}">carrera</td>
-                                            <td th:text="${PEstudios.id_regla_plan_estudio.academico}">Regla</td>
-                                            <td th:text="${PEstudios.id_regla_plan_estudio.cultural}">Regla</td>
-                                            <td th:text="${PEstudios.id_regla_plan_estudio.deportivo}">Regla</td>
-                                            <td >
-                                                <a th:href="@{/planEstudio/edit/{id}(id=${PEstudios.id})}" class="btn btn-outline-info">Editar</a>
-                                                <a th:href="@{/planEstudio/{id}(id=${PEstudios.id})}" class="btn btn-outline-info">Eliminar</a>
+                                        <tr th:each="turno: ${allTurno}">
+                                            <td th:text="${turno.nombre}">Nombre del Turno</td>
+                                            <td>
+                                                <a th:href="@{/turno/edit/{id}(id=${turno.id})}" class="btn btn-outline-info">Editar</a>
                                             </td>
+                                            <td>
+
+                                                <a th:href="@{/turno/{id}(id=${turno.id})}" class="btn btn-outline-info">Eliminar</a>
+                                            </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <a th:href="@{/planEstudios/newplanEstudios}" type="button" class="btn btn-outline-dark">AGREGAR</a>
+                            <a th:href="@{/turno/new}" type="button" class="btn btn-outline-dark">Registrar Turno</a>
                         </div>
                     </div>
                 </div>
