@@ -36,7 +36,7 @@ public class StudentController {
     @GetMapping("/")
     public String showDashboard() {
 
-        return "dashboardAlumno";
+        return "Base/dashboardAlumno";
 
     }
 

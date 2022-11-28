@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head th:fragment="cabeza">
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Créditos FCEAI</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <link th:href="@{/assets/img/favicon.png}" rel="icon">
+        <link th:href="@{/assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+
+        <link href="https://fonts.gstatic.com" rel="preconnect">
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
+
+        <link th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/quill/quill.snow.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/quill/quill.bubble.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/remixicon/remixicon.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/assets/vendor/simple-datatables/style.css}" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" >
+    </head>
+    <body th:fragment="cuerpo">
+        <!-- ======= Header ======= -->
+        <header th:fragment="encabezado" id="header" class="header fixed-top d-flex align-items-center" >
+
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="/" class="logo d-flex align-items-center">
+                    <img src="/assets/img/logo_.svg" alt="Logo">
+                    <span class="d-none d-lg-block"></span>
+                </a>
+                <i class="bi bi-list toggle-sidebar-btn"></i>
+            </div><!-- End Logo -->
+            <nav class="header-nav ms-auto">
+                <ul class="d-flex align-items-center">
+
+                    <li class="nav-item d-block d-lg-none">
+                        <a class="nav-link nav-icon search-bar-toggle " href="#">
+                            <i class="bi bi-search"></i>
+                        </a>
+                    </li><!-- End Search Icon-->
+
+                    <li class="nav-item dropdown pe-3">
+                        
+
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                            <img src="/assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+                            <span class="d-none d-md-block dropdown-toggle ps-2">Administrador</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                                <h6>Administrador</h6>
+                                <span>Creditos FCAeI</span>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center">
+                                    <i class="bi bi-person"></i>
+                                    <span>Perfil</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Configuracion de cuenta</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Cerrar sesión</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </header>
+        <!-- ======= Final Header ======= -->
+
+        <!-- ======= Inicio Sidebar ======= -->
+        <aside th:fragment="asi" id="sidebar" class="sidebar">
+
+            <ul class="sidebar-nav" id="sidebar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="/">
+                        <i class="bi bi-grid"></i>
+                        <span>Página principal</span>
+                    </a>
+                </li><!-- End Dashboard Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-menu-button-wide"></i><span>Estudiantes</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="/student">
+                                <i class="bi bi-circle"></i><span>Estudiantes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/semestre">
+                                <i class="bi bi-circle"></i><span>Semestres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/turno">
+                                <i class="bi bi-circle"></i><span>Turnos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/grupos">
+                                <i class="bi bi-circle"></i><span>Grupos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/semestreActual">
+                                <i class="bi bi-circle"></i><span>Semestres actuales </span>
+                            </a>
+                        </li> 
+                    </ul>
+                </li><!-- End Components Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-journal-text"></i><span>Eventos</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="/events">
+                                <i class="bi bi-circle"></i><span>Eventos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Forms Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-layout-text-window-reverse"></i><span>Carreras</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="/planEstudios">
+                                <i class="bi bi-circle"></i><span>Plan de estudios</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Carreras">
+                                <i class="bi bi-circle"></i><span>Carreras</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/reglaPlanEstudio">
+                                <i class="bi bi-circle"></i><span>Regla plan de estudios </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Tables Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-bar-chart"></i><span>Créditos</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                </li><!-- End Charts Nav -->
+            </ul>
+
+        </aside>
+        <!-- ======= Final Sidebar ======= -->
+
+
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/vendor/chart.js/chart.min.js"></script>
+        <script src="/assets/vendor/echarts/echarts.min.js"></script>
+        <script src="/assets/vendor/quill/quill.min.js"></script>
+        <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+        <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+        <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="@{/assets/js/main.js}"></script>
+
+    </body>
+
+</html>
